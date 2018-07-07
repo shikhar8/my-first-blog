@@ -6,12 +6,10 @@ my blog
 </head>
 <body>
 <h1>python and django</h1>
-<p>enjoying learning python and django</p>
-<br>
-<h2>2nd post</h2>
-<p>this is my second post</p>
-<br>
-<h2>3rd post</h2>
-<p>3rd post here</p>
+{% for i in posts %}
+<h2>{{i.title}}</h2>
+<p>{{i.text|linebreaksbr}}</p>
+<i>{{i.published_date}}</i> 
+{% endfor %}
 </body>
 </html>
