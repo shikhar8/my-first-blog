@@ -1,15 +1,12 @@
-<html>
-<head>
-<title>
-my blog
-</title>
-</head>
-<body>
-<h1>python and django</h1>
-{% for i in posts %}
-<h2>{{i.title}}</h2>
-<p>{{i.text|linebreaksbr}}</p>
-<i>{{i.published_date}}</i> 
+{% extends 'blog/base.html' %}
+{% block content %}
+{% for post in posts %}
+            <div class="post">
+              <div class="date">
+                  <p>published:{{post.published_date}}</p>
+              </div>
+            <h1><a href ="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h1>
+            <p>{{post.text|linebreaksbr}}</p>
+            </div>
 {% endfor %}
-</body>
-</html>
+{% endblock %}
